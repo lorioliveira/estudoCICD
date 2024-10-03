@@ -1,0 +1,14 @@
+{
+    "name": "project-estudos",
+    "version": "1.0.0",
+    "description": "Meu projetinho de CI/CD",
+    "main": "index.js",
+    "scripts": {
+      "test": "cypress open",
+      "cy:run": "cypress run"
+    },
+    "devDependencies": {
+      "cypress": "^13.15.0"
+    }
+  }
+  
