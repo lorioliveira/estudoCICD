@@ -10,15 +10,37 @@ steps:
 # Instalar a versão do Node.js
 - task: NodeTool@0
   inputs:
+<<<<<<< HEAD
     versionSpec: '14.x'  # Aqui você define a versão do Node.js necessária para o projeto
   displayName: 'Instalar Node.js'
+=======
+    versionSpec: '16.x'
+  displayName: 'Use Node.js'
+  
+- script: npx cypress --version
+  displayName: 'Verifica versão instalada do Cypress '
+
+
+- script: |
+    echo "Listing files in the current directory"
+    ls -la
+  displayName: 'Lista os arquivos que estão na pasta'
+>>>>>>> Atualizações
 
 # Instalar dependências do projeto (incluindo Cypress)
 - script: |
     npm install
+<<<<<<< HEAD
   displayName: 'Instalar dependências'
 
 # Rodar os testes do Cypress
 - script: |
     npx cypress run
   displayName: 'Rodar testes do Cypress'
+=======
+    npm install cypress --save-dev
+  displayName: 'Instalar dependências e o Cypress'
+
+- script: npx cypress run
+  displayName: 'Roda os testes do Cypress'
+>>>>>>> Atualizações
