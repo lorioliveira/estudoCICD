@@ -16,16 +16,16 @@ describe('Página de Login', () => {
     cy.get('input[name="password"]').type('secret_sauce') 
   })
 
-  it('deve exibir o botão de login', () => {
-    // Verifica se o botão de login está visível
-    cy.get('input[type="submit"]').should('be.visible')
-  })
-
   it('deve permitir o login e redirecionar para a página correta', () => {
     // Preenche o campo de nome de usuário
     cy.get('input[name="user-name"]').type('standard_user') 
     // Preenche o campo de senha
     cy.get('input[name="password"]').type('secret_sauce') 
+    
+  it('deve exibir o botão de login', () => {
+    // Verifica se o botão de login está visível
+    cy.get('input[type="submit"]').should('be.visible')
+  })
     // Clica no botão de login
     cy.get('input[type="submit"]').click()
     // Verifica se a URL mudou após o login
