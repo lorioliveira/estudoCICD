@@ -16,10 +16,6 @@ steps:
 =======
     versionSpec: '16.x'
   displayName: 'Use Node.js'
-  
-- script: npx cypress --version
-  displayName: 'Verifica versão instalada do Cypress '
-
 
 - script: |
     echo "Listing files in the current directory"
