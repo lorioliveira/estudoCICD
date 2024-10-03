@@ -11,19 +11,20 @@ steps:
   inputs:
     versionSpec: '16.x'
   displayName: 'Use Node.js'
+  
+- script: npx cypress --version
+  displayName: 'Verifica versão instalada do Cypress '
+
 
 - script: |
     echo "Listing files in the current directory"
     ls -la
-  displayName: 'List Current Directory'
+  displayName: 'Lista os arquivos que estão na pasta'
 
 - script: |
     npm install
     npm install cypress --save-dev
-  displayName: 'Install dependencies and Cypress'
+  displayName: 'Instalar dependências e o Cypress'
 
 - script: npx cypress run
-  displayName: 'Run Cypress Tests'
-
-- script: npx cypress --version
-  displayName: 'Verify Cypress Installation'
+  displayName: 'Roda os testes do Cypress'
