@@ -12,15 +12,18 @@ steps:
     versionSpec: '16.x'
   displayName: 'Use Node.js'
 
-- script: npm install
-  displayName: 'Install dependencies'
+- script: |
+    echo "Listing files in the current directory"
+    ls -la
+  displayName: 'List Current Directory'
 
-- script: npm install cypress --save-dev
-  displayName: 'Install Cypress'
+- script: |
+    npm install
+    npm install cypress --save-dev
+  displayName: 'Install dependencies and Cypress'
 
 - script: npx cypress run
   displayName: 'Run Cypress Tests'
 
 - script: npx cypress --version
   displayName: 'Verify Cypress Installation'
-
