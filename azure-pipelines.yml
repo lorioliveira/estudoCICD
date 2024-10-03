@@ -1,21 +1,24 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- main
+  branches:
+    include:
+      - main  # Ou a branch que deseja monitorar
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'  # Você pode mudar para 'windows-latest' ou 'macOS-latest' se necessário
 
 steps:
-- task: UseNode@2
+# Instalar a versão do Node.js
+- task: NodeTool@0
   inputs:
-    versionSpec: '14.x'  # ou qualquer versão do Node.js
+    versionSpec: '14.x'  # Aqui você define a versão do Node.js necessária para o projeto
+  displayName: 'Instalar Node.js'
 
-
+# Instalar dependências do projeto (incluindo Cypress)
 - script: |
     npm install
+  displayName: 'Instalar dependências'
+
+# Rodar os testes do Cypress
+- script: |
     npx cypress run
-  displayName: 'Install dependencies and run Cypress tests'
+  displayName: 'Rodar testes do Cypress'
