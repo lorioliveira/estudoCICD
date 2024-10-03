@@ -1,24 +1,29 @@
 trigger:
   branches:
     include:
-      - main  # Ou a branch que deseja monitorar
+      - Atualizações  # Ou a branch que deseja monitorar
 
 pool:
-  vmImage: 'ubuntu-latest'  # Você pode mudar para 'windows-latest' ou 'macOS-latest' se necessário
+  vmImage: 'ubuntu-latest'
 
 steps:
-# Instalar a versão do Node.js
 - task: NodeTool@0
   inputs:
-    versionSpec: '14.x'  # Aqui você define a versão do Node.js necessária para o projeto
-  displayName: 'Instalar Node.js'
+    versionSpec: '16.x'
+  displayName: 'Use Node.js'
 
-# Instalar dependências do projeto (incluindo Cypress)
+- script: |
+    echo "Listing files in the current directory"
+    ls -la
+  displayName: 'List Current Directory'
+
 - script: |
     npm install
-  displayName: 'Instalar dependências'
+    npm install cypress --save-dev
+  displayName: 'Install dependencies and Cypress'
 
-# Rodar os testes do Cypress
-- script: |
-    npx cypress run
-  displayName: 'Rodar testes do Cypress'
+- script: npx cypress run
+  displayName: 'Run Cypress Tests'
+
+- script: npx cypress --version
+  displayName: 'Verify Cypress Installation'
