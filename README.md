@@ -1,5 +1,5 @@
 # Projeto Pessoal de Testes Automatizados com Cypress
-### 03/Outubro/2024 - Por Lorena Oliveira
+ 03/Outubro/2024 - Por Lorena Oliveira
 
 ## Descrição
 
